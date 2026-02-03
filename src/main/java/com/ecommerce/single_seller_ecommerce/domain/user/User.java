@@ -1,10 +1,11 @@
 package com.ecommerce.single_seller_ecommerce.domain.user;
 
+import com.ecommerce.single_seller_ecommerce.global.common.BaseEntity;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_users")
-public class User {
+public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
