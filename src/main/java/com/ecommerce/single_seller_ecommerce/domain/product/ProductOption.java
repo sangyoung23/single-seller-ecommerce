@@ -15,6 +15,7 @@ public class ProductOption extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_option_id")
     private Long id; // 기본 키
 
     @Column(nullable = false, length = 50)
