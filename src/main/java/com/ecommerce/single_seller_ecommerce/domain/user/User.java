@@ -2,13 +2,20 @@ package com.ecommerce.single_seller_ecommerce.domain.user;
 
 import com.ecommerce.single_seller_ecommerce.global.common.BaseEntity;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tb_users")
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long id; // 기본 키
 
     @Column(nullable = false, unique = true, length = 100)
@@ -24,4 +31,12 @@ public class User extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private UserStatus status; // 사용자 상태
+
+    @Builder
+    public User(String email, String password, UserRole userRole, UserStatus status) {
+        this.email = email;
+        this.password = password;
+        this.role = userRole;
+        this.status = status != null ? status : UserStatus.ACTIVE;
+    }
 }
