@@ -1,5 +1,6 @@
 package com.ecommerce.single_seller_ecommerce.domain.product;
 
+import com.ecommerce.single_seller_ecommerce.global.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -10,10 +11,11 @@ import lombok.NoArgsConstructor;
 @Table(name = "tb_product_options")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class ProductOption {
+public class ProductOption extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_option_id")
     private Long id; // 기본 키
 
     @Column(nullable = false, length = 50)
