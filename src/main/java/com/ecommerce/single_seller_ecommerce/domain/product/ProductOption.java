@@ -25,7 +25,7 @@ public class ProductOption extends BaseEntity {
     private String optionValue; // 옵션 값
 
     @Column(nullable = false)
-    private Long extraPrice; // 옵션 가격
+    private int extraPrice; // 옵션 가격
 
     @Column(nullable = false)
     private int stock; // 옵션 수량
@@ -35,7 +35,7 @@ public class ProductOption extends BaseEntity {
     private Product product;
 
     @Builder
-    public ProductOption(String optionName, String optionValue, Long extraPrice, int stock) {
+    public ProductOption(String optionName, String optionValue, int extraPrice, int stock) {
         this.optionName = optionName;
         this.optionValue = optionValue;
         this.extraPrice = extraPrice;
